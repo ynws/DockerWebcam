@@ -1,4 +1,4 @@
-## HOW
+## WHAT
 Webcam interval capture container
 https://hub.docker.com/r/ynws/webcam/
 
