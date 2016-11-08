@@ -8,6 +8,7 @@ RUN cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 ENV IMAGESIZE=1280x720 ROTATE=0
 
 COPY capture.sh /
+COPY cronSetting.sh /
 
 RUN env > /env
-CMD /bin/bash /capture.sh && echo '*/20 * * * *  env - `cat /env` /bin/bash /capture.sh  >> /var/log/cron.log 2>&1' | crontab - && cron -f
+CMD /bin/bash /capture.sh && ./cronSetting.sh 20 && cron -f
